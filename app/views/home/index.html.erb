@@ -1,1 +1,5 @@
-<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+<div class="flex-container">
+    <div id="resturants" data-starting-resturant-id='<%= @first_resturant_id %>'></div>
+</div>
+
+<%= javascript_pack_tag 'resturant' %>
