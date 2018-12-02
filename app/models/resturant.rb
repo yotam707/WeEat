@@ -1,8 +1,15 @@
 class Resturant < ApplicationRecord
-    def next_id
-        self.class.where('id > ?', self.id).pluck(:id).first
+    has_many :reviews, dependent: :destroy
+    validates :name, :address, presence: true
+
+    def rating
+        if reviews.present?
+            reviews.average(:rating)
+          else
+            nil
+        end
     end
-    def previous_id
-        self.class.where('id < ?', self.id).pluck(:id).last
-      end
+
+    #todo: add api filters
+    
 end

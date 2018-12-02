@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::ResturantsControllerTest < ActionDispatch::IntegrationTest
+class ResturantRatingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

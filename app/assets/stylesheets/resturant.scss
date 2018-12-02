@@ -4,9 +4,11 @@ body {
   
   .resturant-container {
     display:flex;
-    height: 90vh;
+    height: 60vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
    }
   
   .resturant-text {
