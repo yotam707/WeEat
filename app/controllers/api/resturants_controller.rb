@@ -1,9 +1,10 @@
 module Api
     class ResturantsController < ApplicationController
-        before_action :set_returant, only: [:show, :edit, :update, :destroy]
+        before_action :set_resturant, only: [:show, :edit, :update, :destroy]
 
         def index
-            @resturants = Resturant.includes(:reviews)
+            @resturants = Resturant.eager_load(:reviews).all
+            render json: @resturants, status: :ok, include: :reviews
         end
 
         def show
@@ -15,35 +16,24 @@ module Api
 
         def create
             @resturant = Resturant.new(resturant_params)
-            respond_to do |format|
-                if @resturant.save
-                format.html { redirect_to @resturant }
-                format.json { render :show, status: :created, location: @resturant }
-                else
-                format.html { render :new }
-                format.json { render json: @resturant.errors }
-                end
+            if @resturant.save
+                render json: @resturant, status: :created
+            else
+                render json: @resturant.errors
             end
         end
 
         def update
-            respond_to do |format|
                 if @resturant.update(resturant_params)
-                    format.html { redirect_to @resturant }
-                    format.json { render :show, status: :ok, location: @resturant }
+                    render json: @resturant, status: :ok
                 else
-                    format.html { render :edit}
-                    format.json { render json: @resturant.errors }
+                    render json: @resturant.errors 
                 end
-            end
         end
 
         def destroy
             @resturant.destory
-            respond_to do |format|
-                format.html{ redirect_to @resturant }
-                format.json{ head :no_content }
-            end
+            head :no_content
         end
 
         private

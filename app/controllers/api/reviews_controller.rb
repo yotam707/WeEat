@@ -1,11 +1,11 @@
-
 module Api
   class ReviewsController < ApplicationController
-    before_action :set_review, only: %i[show edit update destroy]
-    before_action :set_returant, only: %i[show edit update destory]
+    before_action :set_reviews, only: [:show, :edit, :update, :destroy]
+    before_action :set_resturant, only: [:create, :show, :edit, :update, :destory]
     
     def index
       @reviews = @resturant.reviews
+      render json: @reviews, status: :ok
     end
 
     def new
@@ -15,32 +15,24 @@ module Api
 
     def create
       @review = @resturant.reviews.create(review_params)
-
-      respond_to do |format|
-          if @reviwe.save
-              format.json { render :show, status: :created, location: [@resturant, @review] }
-          else
-              format.json { render json: @revie.error }
-          end
-      end
+        if @review.save
+            render json: @review, status: :created
+        else
+            render json: @reviwe.errors
+        end
     end
 
     def update
-      respond_to do |format|
-          if @review.update(review_params)
-            format.json { render :show, status: :ok, location: [@resturant, @review] }
-          else
-            format.json { render json: @review.errors }
-          end
+        if @review.update(review_params)
+          render json: @review, status: :ok
+        else
+          render json: @review.errors
         end
     end
 
     def destory
       @review.destroy
-
-      respond_to do |format|
-          format.json { head :no_content }
-      end
+      head :no_content
     end
 
     private
@@ -50,7 +42,7 @@ module Api
     end
     
     def set_resturant
-        @resturant = Resturant.find(params[:id])
+        @resturant = Resturant.find(params['resturantId'])
     end
 
     def review_params

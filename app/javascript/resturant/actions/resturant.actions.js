@@ -11,7 +11,10 @@ export const updateResturants = (resturants) => ({type: UPDATE_RESTURANT, restur
 
 
 export const fetchResturants = () => (dispatch) => axios.get(RESTURANT_URL)
-.then(response => response.data)
+.then(response => {
+    console.log("the response is: ", response)
+    return response.data
+})
 .then(resturants => dispatch(updateResturants(resturants)));
 
 export const addResturant = (resturant) => (dispatch, getState) => axios({
@@ -25,4 +28,20 @@ export const addResturant = (resturant) => (dispatch, getState) => axios({
     },
     mode: 'cors',
 }).then(response => response.data)
-.then(resturants => dispatch(updateResturants(resturants)));
+.then(() => dispatch(fetchResturants()));
+
+
+export const addReview = (review) => (dispatch) => axios(
+    {
+        method: 'POST',
+        url: `${RESTURANT_URL}/${review.resturantId}/reviews`,
+        data: JSON.stringify(review), 
+        headers: {
+            'content-type': 'application/json', 
+            'Access-Control-Allow-Origin': '*',
+            'X-CSRF-Token': csrfToken,
+        },
+    }
+).then(response => response.data)
+.then(()=>dispatch(fetchResturants()))
+

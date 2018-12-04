@@ -1,1 +1,0 @@
-json.partial! "api/resturants/resturant", resturant: @resturant

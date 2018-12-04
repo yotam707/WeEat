@@ -1,11 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import queryString from 'query-string';
-import axios from 'axios';
-import ResturantNavigation from './ResturantNavigation';
-import ResturantText from './ResturantText';
-import ResturantFooter from './ResturantFooter';
-import ResturantFormNew from './ResturantFormNew';
+import ResturantList from './ResturantsList';
+import AddNewResturant from './AddNewResturant';
 
 class ResturantDisplay extends React.Component {
   constructor () {
@@ -13,16 +8,6 @@ class ResturantDisplay extends React.Component {
     // this.state = {
     //     resturants: [],
     // };
-  }
-
-  fetchResturants () {
-    axios.get( `api/resturant` )
-        .then(response => {
-          this.setState({ resturants: response.data });
-        })
-        .catch(error => {
-          console.error(error);
-        });
   }
 
   componentDidMount () {
@@ -33,21 +18,15 @@ class ResturantDisplay extends React.Component {
     const resturants = this.props.resturants.resturants.resturants;
     return (
       <div>
-        <div className='resturant-container'>
+        {/* <div className='resturant-container'>
             <ResturantFormNew/>
-        </div>
-        <div className='resturant-container'>
+        </div> */}
+        <div>
         {resturants &&  
-        resturants.map(r => {
-            return (
-                <div key={r.id}>
-                    <h1>{r.name}</h1>
-                    <p>{r.cuisine}</p>
-                </div>
-            );
-        })
+          <ResturantList resturants={resturants}/>
         }
         </div>
+        <AddNewResturant />
       </div>
     );
   }

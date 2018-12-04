@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ResturantDisplay from '../../components/ResturantDisplay';
-import ResturantFormNew from '../../components/ResturantFormNew';
 import * as Actions from '../../actions/resturant.actions';
 import { bindActionCreators } from 'redux';
 
-
 class Content extends Component {
+    constructor(props){
+        super(props);
+    }
 
     componentDidMount(){
         this.props.fetchResturants();

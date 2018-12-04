@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/lib/Form';
-import Button from 'react-bootstrap/lib/Button';
+import Button from '@material-ui/core/Button';
 import renderField from '../renderFields/renderField';
 import renderSelect from '../renderFields/renderSelect';
 import renderCheckbox from '../renderFields/renderCheckbox';
@@ -15,8 +15,8 @@ class ResturantFormNew extends React.Component {
     }
     
   render () {
-    const { handleSubmit, addResturant} = this.props;
-    const submit = (resturant) => addResturant({ resturant});
+    const { handleSubmit, addResturant, handleClose} = this.props;
+    const submit = (resturant) =>  { addResturant({ resturant}); handleClose()};
     return (
     <Form onSubmit={handleSubmit(submit)}>
 
@@ -50,7 +50,7 @@ class ResturantFormNew extends React.Component {
          type="checkbox"
          label="Resturant 10 Bis" />
        
-        <Button variant="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit">
             Add
         </Button>
       </Form>
