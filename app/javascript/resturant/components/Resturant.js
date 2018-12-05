@@ -8,6 +8,9 @@ import StarRatingComponent from 'react-star-rating-component';
 import StarRate from '@material-ui/icons/StarRate';
 import ViewReviews from './ViewReviews';
 import AddNewReview from './AddNewReview';
+import TenbisIcon from './TenbisIcon';
+import { CardHeader } from '@material-ui/core';
+
 
 const styles = theme => ({
     card: {
@@ -25,13 +28,18 @@ const Resturant = (props) => {
         <div>
             { resturant ? (
                 <Card className={classes.card}>
+                    <CardHeader action={
+                        resturant.tenbis &&
+                        <TenbisIcon />
+                    }
+                    title={
+                        resturant.name
+                    } 
+                    subheader={
+                        resturant.cuisine
+                    }
+                    />
                     <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                        {resturant.name}
-                    </Typography>
-                    <Typography component="p" gutterBottom>
-                        {resturant.cuisine}
-                    </Typography>
                     <Typography component="div" variant="body2" gutterBottom align="left">
                         <StarRatingComponent
                             name="rate2" 
