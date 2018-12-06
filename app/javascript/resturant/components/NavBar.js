@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-
+import ResturantSearchForm from '../forms/ResturantSearchForm';
 
 const styles = theme => ({
     root: {
@@ -93,13 +93,7 @@ const NavBar = (props) => {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
+              <ResturantSearchForm debounceTimeout={350} />
             </div>
             </Toolbar>
         </AppBar>

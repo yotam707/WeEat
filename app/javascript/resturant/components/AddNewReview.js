@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ResturantReviewForm from './ResturantReviewForm';
+import ResturantReviewForm from '../forms/ResturantReviewForm';
 
 
 const styles = theme => ({

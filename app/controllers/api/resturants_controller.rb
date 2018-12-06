@@ -3,7 +3,9 @@ module Api
         before_action :set_resturant, only: [:show, :edit, :update, :destroy]
 
         def index
-            @resturants = Resturant.eager_load(:reviews).all
+            @resturants = Resturant.eager_load(:reviews)
+            .search(params[:search])
+            .all
             render json: @resturants, status: :ok, include: :reviews
         end
 
