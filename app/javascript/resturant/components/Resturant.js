@@ -46,7 +46,7 @@ const Resturant = (props) => {
                             editing={false}
                             renderStarIcon={() => <StarRate/>}
                             starCount={3}
-                            value={resturant.rating}
+                            value={resturant.rating_avg}
                         />
                         
                     </Typography>

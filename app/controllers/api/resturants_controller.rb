@@ -4,7 +4,8 @@ module Api
 
         def index
             @resturants = Resturant.eager_load(:reviews)
-            .search(params[:search])
+            .filter(
+                params.slice(:tenbis, :cuisine, :max_delivery_time, :search, :rating_avg))
             .all
             render json: @resturants, status: :ok, include: :reviews
         end

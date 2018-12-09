@@ -4,10 +4,18 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import { FaFilter } from 'react-icons/fa';
 import ResturantSearchForm from '../forms/ResturantSearchForm';
+import MenuIcon from '@material-ui/icons/Menu';
+import FilterIcon from '@material-ui/icons/Filter';
+import classNames from 'classnames';
+import IconButton from '@material-ui/core/IconButton';
+import { connect } from 'react-redux';
+import * as Actions from "../actions/resturant.actions";
+import { bindActionCreators } from "redux";
 
+const drawerWidth = 300;
 const styles = theme => ({
     root: {
       width: '100%',
@@ -15,6 +23,20 @@ const styles = theme => ({
     grow: {
       flexGrow: 1,
     },
+    appBar: {
+        transition: theme.transitions.create(['margin', 'width'], {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
+      },
+      appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+      },
     menuButton: {
       marginLeft: -12,
       marginRight: 20,
@@ -53,6 +75,13 @@ const styles = theme => ({
       color: 'inherit',
       width: '100%',
     },
+    menuButton: {
+        marginLeft: 12,
+        marginRight: 20,
+      },
+      hide: {
+        display: 'none',
+      },
     inputInput: {
       paddingTop: theme.spacing.unit,
       paddingRight: theme.spacing.unit,
@@ -80,11 +109,21 @@ const styles = theme => ({
 
 
 const NavBar = (props) => {
-    const { classes } = props;
+    const { classes, open, openDrawer } = props;
     return(
         <div>
-        <AppBar position="static">
+        <AppBar position="static" className={classNames(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}>
             <Toolbar>
+                <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={openDrawer}
+                className={classNames(classes.menuButton, open && classes.hide)}
+                >
+                <FaFilter />
+                </IconButton>
                 <Typography variant="title" color="inherit">
                     WeEat
                 </Typography>
@@ -97,7 +136,11 @@ const NavBar = (props) => {
             </div>
             </Toolbar>
         </AppBar>
+        
         </div>
     )
 }
-export default withStyles(styles)(NavBar);
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
+
+export default connect(null, mapDispatchToProps)(withStyles(styles, { withTheme: true })(NavBar));

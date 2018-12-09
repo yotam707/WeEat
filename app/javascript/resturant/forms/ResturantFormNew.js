@@ -29,7 +29,6 @@ class ResturantFormNew extends React.Component {
       <Field name="cuisine" component={renderSelect}
       type="select"
       label="Cuisine selection">
-            <option>Choose one...</option>
             <option>Japanease</option>
             <option>Indian</option>
             <option>Thai</option>

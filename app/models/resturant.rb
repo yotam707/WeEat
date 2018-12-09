@@ -1,14 +1,16 @@
 class Resturant < ApplicationRecord
+    include Filterable
     has_many :reviews, dependent: :destroy
     validates :name, :address, presence: true
+    after_initialize :calc_rating_avg
 
-
-    def rating
+    def calc_rating_avg
         if reviews.present?
-            reviews.average(:rating).to_i
+            self.rating_avg = reviews.average(:rating).ceil
           else
-            0
+            self.rating_avg = 0
         end
+        save
     end
 
       # Filtered
@@ -33,15 +35,18 @@ class Resturant < ApplicationRecord
         where('max_delivery_time <= ?', max_delivery_time)
     }
    
-  scope :search, ->(param) {
-    where('lower(name) like lower(:param) OR lower(address) like lower(:param) OR lower(cuisine) like lower(:param)',
-          param: "%#{param}%")
-  }
+    scope :search, ->(param) {
+        where('lower(name) like lower(:param) OR lower(address) like lower(:param) OR lower(cuisine) like lower(:param)',
+            param: "%#{param}%")
+    }
 
-  scope :shortest, ->(param) {
-    if param == 'true'
-      order(:max_delivery_time)
-    end
-  }
+    scope :rating_avg, ->(rating_avg) {
+         where('rating_avg >= ? ', rating_avg.to_i)
+    }
+    scope :shortest, ->(param) {
+        if param == 'true'
+        order(:max_delivery_time)
+        end
+    }
     
 end
