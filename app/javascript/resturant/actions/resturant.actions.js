@@ -88,7 +88,7 @@ export const addResturant = (resturant) => (dispatch, getState) => axios({
 export const addReview = (review) => (dispatch) => axios(
     {
         method: 'POST',
-        url: `${RESTURANT_URL}/${review.resturantId}/reviews`,
+        url: `${RESTURANT_URL}/${review.resturant_id}/reviews`,
         data: JSON.stringify(review), 
         headers: {
             'content-type': 'application/json', 

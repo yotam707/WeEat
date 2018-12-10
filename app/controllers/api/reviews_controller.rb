@@ -1,7 +1,7 @@
 module Api
   class ReviewsController < ApplicationController
-    before_action :set_reviews, only: [:show, :edit, :update, :destroy]
-    before_action :set_resturant, only: [:create, :show, :edit, :update, :destory]
+    before_action :set_reviews, only: [ :show, :edit, :update, :destroy]
+    before_action :set_resturant, only: [:index, :create, :show, :edit, :update, :destory]
     
     def index
       @reviews = @resturant.reviews
@@ -42,7 +42,7 @@ module Api
     end
     
     def set_resturant
-        @resturant = Resturant.find(params['resturantId'])
+        @resturant = Resturant.find(params['resturant_id'])
     end
 
     def review_params

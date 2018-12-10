@@ -22,7 +22,7 @@ class ResturantReviewForm extends React.Component {
     const { handleSubmit, addReview, resturantId, handleClose} = this.props;
     const { rating } = this.state;
     const submit = (review) => {
-        addReview({...review, resturantId, rating });
+        addReview({...review, resturant_id: resturantId, rating });
         handleClose();
     }
     return (
