@@ -13,5 +13,5 @@
  *= require_tree .
  *= require_self
  */
- @import "resturant";
- @import "font-awesome";
+ /*= require _resturant
+ /*=  font-awesome;
