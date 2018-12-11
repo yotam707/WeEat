@@ -7,8 +7,9 @@ const ResturantDisplay = ({ resturants }) => {
   return (
     <div>
       <div>
-        {resturants &&
-          <ResturantList resturants={resturants}/>
+        {resturants.length > 0 ? (
+          <ResturantList resturants={resturants}/>)
+          : (<h2>No Resturants</h2>)
         }
       </div>
       <AddNewResturant />
