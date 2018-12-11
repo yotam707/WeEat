@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 class AddNewReview extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             open: false,
@@ -29,7 +29,7 @@ class AddNewReview extends React.Component {
         this.setState({ open: false });
     };
 
-    render(){
+    render() {
         const { classes , resturantId} = this.props;
         return (
         <div>
