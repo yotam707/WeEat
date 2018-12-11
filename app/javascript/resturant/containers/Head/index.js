@@ -16,16 +16,16 @@ const Head = (props) => {
   );
 };
 
-const mapStateToProps = (resturants, open) => ({
-  resturants: resturants,
-  open: open,
-});
 Head.propTypes = {
   resturants: PropTypes.shape({
     resturants: PropTypes.object,
   }),
 };
 
+const mapStateToProps = (resturants, open) => ({
+  resturants: resturants,
+  open: open,
+});
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Head);

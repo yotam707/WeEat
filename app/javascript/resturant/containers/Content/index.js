@@ -5,6 +5,8 @@ import * as Actions from '../../actions/resturant.actions';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
 const drawerWidth = 300;
 const style = theme => ({
   content: {
@@ -47,6 +49,13 @@ class Content extends Component {
     );
   }
 }
+Content.propTypes = {
+  classes: PropTypes.object,
+  resturants: PropTypes.shape({
+    resturants: PropTypes.object,
+  }),
+  fetchResturants: PropTypes.func,
+};
 
 const mapStateToProps = (resturants, open) => ({
   resturants: resturants,
@@ -54,5 +63,4 @@ const mapStateToProps = (resturants, open) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
-
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(style, { withTheme: true })(Content));

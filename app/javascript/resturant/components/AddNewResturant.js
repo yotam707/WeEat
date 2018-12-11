@@ -6,6 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ResturantFormNew from '../forms/ResturantFormNew';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   fab: {
@@ -51,6 +52,8 @@ class AddNewResturant extends React.Component {
         );
       }
 }
-
+AddNewResturant.propTypes = {
+  classes: PropTypes.object,
+};
 export default withStyles(styles, { withTheme: true })(AddNewResturant);
 

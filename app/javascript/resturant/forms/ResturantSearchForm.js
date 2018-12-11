@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import SearchInput from '../components/SearchInput';
+import PropTypes from 'prop-types';
 
 class ResturantSearchForm extends React.Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class ResturantSearchForm extends React.Component {
     );
   }
 }
+ResturantSearchForm.propTypes = {
+  debounceTimeout: PropTypes.func,
+};
 
 ResturantSearchForm = reduxForm({
   form: 'search',
