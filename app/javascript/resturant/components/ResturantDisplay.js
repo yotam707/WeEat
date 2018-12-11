@@ -7,7 +7,7 @@ const ResturantDisplay = ({ resturants }) => {
   return (
     <div>
       <div>
-        {resturants &&  
+        {resturants &&
           <ResturantList resturants={resturants}/>
         }
       </div>
