@@ -28,6 +28,10 @@
     "redux-modal": "^2.0.4",
     "redux-thunk": "^2.3.0"
   },
+  "engines": {
+    "yarn": ">= 1.0.2",
+    "node": ">=6.11.1"
+   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
   }
