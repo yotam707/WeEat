@@ -1,1 +1,1 @@
-import 'resturant'
+import 'resturant';

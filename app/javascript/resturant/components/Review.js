@@ -1,25 +1,25 @@
-import React from 'react'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
+import React from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 const Review = (props) => {
-    const { review } = props;
-    return(
-        <div>
-            { review ? (
-                <Card >
-                    <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                        {review.reviewer_name}
-                    </Typography>
-                    <Typography component="p">
-                        {review.comment}
-                    </Typography>
-                    </CardContent>
-                </Card>
-            ) : null}
-        </div>
-    )
-}
-export default Review
+  const { review } = props;
+  return (
+    <div>
+      { review ? (
+        <Card >
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+              {review.reviewer_name}
+            </Typography>
+            <Typography component="p">
+              {review.comment}
+            </Typography>
+          </CardContent>
+        </Card>
+      ) : null}
+    </div>
+  );
+};
+export default Review;

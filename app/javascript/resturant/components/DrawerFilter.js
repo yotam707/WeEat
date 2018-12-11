@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';;
+import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,13 +8,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItemText from '@material-ui/core/ListItemText';
 import { connect } from 'react-redux';
-import * as Actions from "../actions/resturant.actions";
+import * as Actions from '../actions/resturant.actions';
 import TenBisFilter from '../filters/TenBisFilter';
 import RatingFilter from '../filters/RatingFilter';
 import CuisineFilter from '../filters/CuisineFilter';
 import DeliveryFilter from '../filters/DeliveryFilter';
 import ClearAllFilter from '../filters/ClearAllFilter';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+
 const drawerWidth = 300;
 
 const styles = theme => ({
@@ -79,58 +81,68 @@ const styles = theme => ({
 });
 
 
-class DrawerFilter extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const { 
-          classes,
-          open,
-          closeDrawer,
-          theme,
-          filterTenBis,
-          filterRating,
-          filterCuisine,
-          filterMaxDeliveryTime,
-          clearAll,
-        } = this.props;
-        const { minStarRating, cuisine, maxDeliveryInHours, tenbis } = this.props.store.resturants;
-        return (
-        <Drawer
-          className={classes.drawer}
-          variant="persistent"
-          anchor="left"
-          open={open}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={closeDrawer}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
-            <ListItemText primary="Filters" />
-          </div>
-          <Divider />
-          <List>
-            <TenBisFilter filterTenBis={filterTenBis} tenbis={tenbis} />
-            <RatingFilter  filterRating={filterRating} minStarRating={minStarRating} iconClass={classes.icon} />
-            <CuisineFilter filterCuisine={filterCuisine} cuisine={cuisine} iconClass={classes.icon} />
-            <DeliveryFilter filterMaxDeliveryTime={filterMaxDeliveryTime} maxDeliveryInHours={maxDeliveryInHours} iconClass={classes.icon} />
-          </List>
-          <Divider/>
-          <List>
-            <ClearAllFilter clearAll={clearAll} />
-          </List>
-        </Drawer>
-        );
-    }
-}
+const DrawerFilter = (props) => {
+  const {
+    classes,
+    open,
+    closeDrawer,
+    theme,
+    filterTenBis,
+    filterRating,
+    filterCuisine,
+    filterMaxDeliveryTime,
+    clearAll,
+  } = props;
+  const { minStarRating, cuisine, maxDeliveryInHours, tenbis } = props.store.resturants;
+  return (
+    <Drawer
+      className={classes.drawer}
+      variant="persistent"
+      anchor="left"
+      open={open}
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
+      <div className={classes.drawerHeader}>
+        <IconButton onClick={closeDrawer}>
+          {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        </IconButton>
+        <ListItemText primary="Filters" />
+      </div>
+      <Divider />
+      <List>
+        <TenBisFilter filterTenBis={filterTenBis} tenbis={tenbis} />
+        <RatingFilter filterRating={filterRating} minStarRating={minStarRating} iconClass={classes.icon} />
+        <CuisineFilter filterCuisine={filterCuisine} cuisine={cuisine} iconClass={classes.icon} />
+        <DeliveryFilter filterMaxDeliveryTime={filterMaxDeliveryTime}
+          maxDeliveryInHours={maxDeliveryInHours} iconClass={classes.icon} />
+      </List>
+      <Divider/>
+      <List>
+        <ClearAllFilter clearAll={clearAll} />
+      </List>
+    </Drawer>
+  );
+};
 const mapStateToProps = (store) => ({
   store: store,
 });
+
+DrawerFilter.propTypes = {
+  classes: PropTypes.object,
+  open: PropTypes.bool,
+  closeDrawer: PropTypes.bool,
+  theme: PropTypes.object,
+  filterTenBis: PropTypes.func,
+  filterRating: PropTypes.func,
+  filterCuisine: PropTypes.func,
+  filterMaxDeliveryTime: PropTypes.func,
+  clearAll: PropTypes.func,
+  store: PropTypes.shape({
+    resturants: PropTypes.object,
+  }),
+};
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
 

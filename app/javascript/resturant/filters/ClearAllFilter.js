@@ -6,13 +6,13 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const ClearAllFilter = ({ clearAll }) => {
-    return <ListItem button>
-                <ListItemText primary="Clear All" />
-              <ListItemSecondaryAction>
-                <IconButton aria-label="Clear" onClick={clearAll} >
-                    <DeleteIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-}
+  return (<ListItem button>
+    <ListItemText primary="Clear All" />
+    <ListItemSecondaryAction>
+      <IconButton aria-label="Clear" onClick={clearAll} >
+        <DeleteIcon />
+      </IconButton>
+    </ListItemSecondaryAction>
+  </ListItem>);
+};
 export default ClearAllFilter;

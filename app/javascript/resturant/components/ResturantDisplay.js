@@ -1,35 +1,23 @@
 import React from 'react';
 import ResturantList from './ResturantsList';
 import AddNewResturant from './AddNewResturant';
+import PropTypes from 'prop-types';
 
-class ResturantDisplay extends React.Component {
-  constructor () {
-    super();
-    // this.state = {
-    //     resturants: [],
-    // };
-  }
-
-  componentDidMount () {
-    //this.fetchResturants();
-  }
-
-  render () {
-    const resturants = this.props.resturants.resturants.resturants;
-    return (
+const ResturantDisplay = ({ resturants }) => {
+  return (
+    <div>
       <div>
-        {/* <div className='resturant-container'>
-            <ResturantFormNew/>
-        </div> */}
-        <div>
         {resturants &&  
           <ResturantList resturants={resturants}/>
         }
-        </div>
-        <AddNewResturant />
       </div>
-    );
-  }
-}
+      <AddNewResturant />
+    </div>
+  );
+};
+
+ResturantDisplay.propTypes = {
+  resturants: PropTypes.object,
+};
 
 export default ResturantDisplay;

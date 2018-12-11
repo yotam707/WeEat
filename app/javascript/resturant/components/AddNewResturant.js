@@ -5,51 +5,51 @@ import AddIcon from '@material-ui/icons/Add';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ResturantFormNew from '../forms/ResturantFormNew'
+import ResturantFormNew from '../forms/ResturantFormNew';
 
 const styles = theme => ({
-    fab: {
-        position: 'absolute',
-        bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 2,
-      },
+  fab: {
+    position: 'absolute',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
+  },
 });
 
 class AddNewResturant extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            open: false,
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+  }
     handleClickOpen = () => {
-        this.setState({ open: true });
-      };
-    
-      handleClose = () => {
-        this.setState({ open: false });
+      this.setState({ open: true });
     };
 
-    render(){
+      handleClose = () => {
+        this.setState({ open: false });
+      };
+
+      render() {
         const { classes } = this.props;
         return (
-        <div>
+          <div>
             <Fab color="primary" aria-label="Add" onClick={this.handleClickOpen} className={classes.fab}>
-            <AddIcon />
+              <AddIcon />
             </Fab>
             <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description">
-                    <DialogTitle id="alert-dialog-title">{"Add new resturant"}</DialogTitle>
-                    <DialogContent>
-                        <ResturantFormNew handleClose={this.handleClose} />
-                    </DialogContent>
-          </Dialog>
-        </div>
+              open={this.state.open}
+              onClose={this.handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description">
+              <DialogTitle id="alert-dialog-title">{'Add new resturant'}</DialogTitle>
+              <DialogContent>
+                <ResturantFormNew handleClose={this.handleClose} />
+              </DialogContent>
+            </Dialog>
+          </div>
         );
-    }
+      }
 }
 
 export default withStyles(styles, { withTheme: true })(AddNewResturant);
