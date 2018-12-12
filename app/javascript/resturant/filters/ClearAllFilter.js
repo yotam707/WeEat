@@ -7,8 +7,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import PropTypes from 'prop-types';
 
 const ClearAllFilter = ({ clearAll }) => {
+  const ClearAll = 'Clear All';
   return (<ListItem button>
-    <ListItemText primary="Clear All" />
+    <ListItemText primary={ClearAll} />
     <ListItemSecondaryAction>
       <IconButton aria-label="Clear" onClick={clearAll} >
         <DeleteIcon />

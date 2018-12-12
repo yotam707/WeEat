@@ -9,11 +9,12 @@ import FastFoodIcon from '@material-ui/icons/Fastfood';
 import PropTypes from 'prop-types';
 
 const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
+  const Cuisine = 'Cuisine';
   return (<ListItem button>
     <ListItemIcon>
       <FastFoodIcon className={iconClass} />
     </ListItemIcon>
-    <ListItemText primary="Cuisine" />
+    <ListItemText primary={Cuisine} />
     <ListItemSecondaryAction>
       <Select
         value={cuisine}
@@ -21,16 +22,13 @@ const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
         inputProps={{
           name: 'cuisine',
           id: 'cuisine-type',
-        }}
-      >
+        }}>
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={'Japanease'}>Japanease</MenuItem>
-        <MenuItem value={'Indian'}>Indian</MenuItem>
-        <MenuItem value={'Thai'}>Thai</MenuItem>
-        <MenuItem value={'Burgers'}>Burgers</MenuItem>
-        <MenuItem value={'Israeli'}>Israeli</MenuItem>
+        {['Japanease', 'Indian', 'Thai', 'Burgers', 'Israeli'].map((text) => (
+          <MenuItem button key={text} value={text}>{text}</MenuItem>
+        ))}
       </Select>
     </ListItemSecondaryAction>
   </ListItem>);
@@ -38,7 +36,7 @@ const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
 
 CuisineFilter.propTypes = {
   filterCuisine: PropTypes.func,
-  cuisine: PropTypes.object,
-  iconClass: PropTypes.object,
+  cuisine: PropTypes.string,
+  iconClass: PropTypes.string,
 };
 export default CuisineFilter;

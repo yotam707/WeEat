@@ -28,7 +28,6 @@ const styles = theme => ({
   },
 });
 
-
 const ResturantReview = ({ classes, reviews }) => {
   return (
     <List className={classes.root} subheader={<li />}>
@@ -64,4 +63,5 @@ ResturantReview.propTypes = {
   classes: PropTypes.object,
   reviews: PropTypes.array,
 };
+
 export default withStyles(styles, { withTheme: true })(ResturantReview);

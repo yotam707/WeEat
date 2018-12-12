@@ -8,11 +8,12 @@ import Switch from '@material-ui/core/Switch';
 import PropTypes from 'prop-types';
 
 const TenBisFilter = ({ filterTenBis, tenbis }) =>{
+  const TenBis = '10Bis';
   return (<ListItem button>
     <ListItemIcon>
       <TenBisIcon />
     </ListItemIcon>
-    <ListItemText primary="10Bis" />
+    <ListItemText primary={TenBis} />
     <ListItemSecondaryAction>
       <Switch
         onChange={filterTenBis}

@@ -18,4 +18,5 @@ const ResturantsList = ({ resturants }) =>
 ResturantsList.propTypes = {
   resturants: PropTypes.array,
 };
+
 export default ResturantsList;

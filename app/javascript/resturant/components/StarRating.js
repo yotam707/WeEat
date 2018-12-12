@@ -2,7 +2,6 @@ import StarRatingComponent from 'react-star-rating-component';
 import React from 'react';
 import StarRate from '@material-ui/icons/StarRate';
 
-
 const StarRating = ({ input, rating, onStarClick = ()=>{}, editing = true, ...rest }) => {
   return (
     <StarRatingComponent

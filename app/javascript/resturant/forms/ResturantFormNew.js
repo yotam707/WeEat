@@ -18,12 +18,10 @@ const ResturantFormNew = (props) => {
   };
   return (
     <Form onSubmit={handleSubmit(submit)}>
-
       <Field name="name"
         component={renderField}
         type="input"
         label="Resturant Name" />
-
 
       <Field name="cuisine" component={renderSelect}
         type="select"
@@ -53,11 +51,13 @@ const ResturantFormNew = (props) => {
     </Form>
   );
 };
+
 ResturantFormNew.propTypes = {
   handleSubmit: PropTypes.func,
   handleClose: PropTypes.func,
   addResturant: PropTypes.func,
 };
+
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
 export default connect(null, mapDispatchToProps)(reduxForm({ form: 'addRestaurant',
   initialValues: { tenbis: true } })(ResturantFormNew));

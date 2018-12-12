@@ -14,5 +14,4 @@ const renderCheckbox = ({ input, label }) => {
   </Form.Group>);
 };
 
-
 export default renderCheckbox;

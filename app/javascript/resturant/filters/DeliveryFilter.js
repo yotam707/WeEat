@@ -9,11 +9,12 @@ import AvTimerIcon from '@material-ui/icons/AvTimer';
 import PropTypes from 'prop-types';
 
 const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }) => {
+  const DeliveryTime = 'Delivery Time';
   return (<ListItem button>
     <ListItemIcon>
       <AvTimerIcon className={iconClass} />
     </ListItemIcon>
-    <ListItemText primary="Delivery Time" />
+    <ListItemText primary={DeliveryTime} />
     <ListItemSecondaryAction>
       <Select
         value={maxDeliveryInHours}
@@ -26,11 +27,11 @@ const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={1}>1 Hour</MenuItem>
-        <MenuItem value={2}>2 Hours</MenuItem>
-        <MenuItem value={3}>3 Hours</MenuItem>
-        <MenuItem value={4}>4 Hours</MenuItem>
-        <MenuItem value={5}>5 Hours</MenuItem>
+        {[1, 2, 3, 4, 5].map((val) => {
+          let text = val % 10 === 1 ? val + ' Hour' : val + ' Hours';
+          return <MenuItem button key={val} value={val}>{text}</MenuItem>;
+        }
+        )}
       </Select>
     </ListItemSecondaryAction>
   </ListItem>);
@@ -38,6 +39,6 @@ const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }
 DeliveryFilter.propTypes = {
   filterMaxDeliveryTime: PropTypes.func,
   maxDeliveryInHours: PropTypes.number,
-  iconClass: PropTypes.object,
+  iconClass: PropTypes.string,
 };
 export default DeliveryFilter;
