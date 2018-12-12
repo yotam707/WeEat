@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Resturants serializer
 class ResturantSerializer < ActiveModel::Serializer
   attributes :id, :name, :address, :rating_avg, :cuisine, :tenbis,

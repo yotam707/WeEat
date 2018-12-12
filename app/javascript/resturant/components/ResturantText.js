@@ -18,4 +18,5 @@ ResturantText.propTypes = {
     cuisine: PropTypes.string,
   }),
 };
+
 export default ResturantText;

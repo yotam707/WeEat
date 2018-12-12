@@ -9,11 +9,12 @@ import AvTimerIcon from '@material-ui/icons/AvTimer';
 import PropTypes from 'prop-types';
 
 const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }) => {
+  const DeliveryTime = 'Delivery Time';
   return (<ListItem button>
     <ListItemIcon>
       <AvTimerIcon className={iconClass} />
     </ListItemIcon>
-    <ListItemText primary="Delivery Time" />
+    <ListItemText primary={DeliveryTime} />
     <ListItemSecondaryAction>
       <Select
         value={maxDeliveryInHours}

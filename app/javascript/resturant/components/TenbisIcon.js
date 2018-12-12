@@ -5,4 +5,5 @@ const TenbisIcon = () => {
     <div className="ten-bis-icon" />
   );
 };
+
 export default TenbisIcon;

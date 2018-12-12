@@ -49,10 +49,10 @@ class AddNewReview extends React.Component {
     );
   }
 }
+
 AddNewReview.propTypes = {
   classes: PropTypes.object,
   resturantId: PropTypes.number,
 };
 
 export default withStyles(styles, { withTheme: true })(AddNewReview);
-

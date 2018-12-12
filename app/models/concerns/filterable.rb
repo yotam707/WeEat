@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+# module Filtrable
 module Filterable
   extend ActiveSupport::Concern
-
+  # class method
   module ClassMethods
     def filter(filtering_params)
       results = where(nil)
@@ -12,4 +13,4 @@ module Filterable
       results
     end
   end
-  end
+end

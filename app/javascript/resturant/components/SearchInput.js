@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import debounce from 'lodash.debounce';
 import PropTypes from 'prop-types';
 
-
 const styles = theme => ({
   inputRoot: {
     color: 'inherit',
@@ -63,4 +62,5 @@ SearchInput.propTypes = {
   onChange: PropTypes.func,
   debounceTimeout: PropTypes.number,
 };
+
 export default withStyles(styles)(SearchInput);

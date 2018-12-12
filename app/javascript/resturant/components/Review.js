@@ -27,4 +27,5 @@ const Review = (props) => {
 Review.propTypes = {
   review: PropTypes.object,
 };
+
 export default Review;

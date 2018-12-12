@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,37 +12,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_114816) do
-
+ActiveRecord::Schema.define(version: 20_181_209_114_816) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "resturant_ratings", force: :cascade do |t|
-    t.integer "rating"
-    t.integer "resturant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'resturant_ratings', force: :cascade do |t|
+    t.integer 'rating'
+    t.integer 'resturant_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "resturants", force: :cascade do |t|
-    t.string "name"
-    t.string "cuisine"
-    t.boolean "tenbis"
-    t.string "address"
-    t.integer "max_delivery_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "rating_avg"
+  create_table 'resturants', force: :cascade do |t|
+    t.string 'name'
+    t.string 'cuisine'
+    t.boolean 'tenbis'
+    t.string 'address'
+    t.integer 'max_delivery_time'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.float 'rating_avg'
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "resturant_id"
-    t.string "reviewer_name"
-    t.integer "rating"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'reviews', force: :cascade do |t|
+    t.integer 'resturant_id'
+    t.string 'reviewer_name'
+    t.integer 'rating'
+    t.string 'comment'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "reviews", "resturants"
+  add_foreign_key 'reviews', 'resturants'
 end

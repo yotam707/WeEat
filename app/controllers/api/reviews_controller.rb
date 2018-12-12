@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Api
+  # ReviewsController
   class ReviewsController < ApplicationController
     before_action :set_reviews, only: %i[edit update destroy]
     before_action :set_resturant, only: %i[index create edit update destory]

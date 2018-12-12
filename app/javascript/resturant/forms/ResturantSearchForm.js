@@ -21,6 +21,7 @@ class ResturantSearchForm extends React.Component {
     );
   }
 }
+
 ResturantSearchForm.propTypes = {
   debounceTimeout: PropTypes.number,
 };
@@ -30,4 +31,3 @@ ResturantSearchForm = reduxForm({
 })(ResturantSearchForm);
 
 export default ResturantSearchForm;
-

@@ -26,6 +26,7 @@ const style = theme => ({
     marginLeft: drawerWidth,
   },
 });
+
 class Content extends Component {
   constructor(props) {
     super(props);
@@ -42,8 +43,7 @@ class Content extends Component {
       <main
         className={classNames(classes.content, {
           [classes.contentShift]: open,
-        })}
-      >
+        })}>
         <ResturantDisplay resturants={this.props.resturants.resturants.resturants} />
       </main>
     );

@@ -23,37 +23,38 @@ class AddNewResturant extends React.Component {
       open: false,
     };
   }
-    handleClickOpen = () => {
-      this.setState({ open: true });
-    };
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
 
-      handleClose = () => {
-        this.setState({ open: false });
-      };
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
-      render() {
-        const { classes } = this.props;
-        return (
-          <div>
-            <Fab color="primary" aria-label="Add" onClick={this.handleClickOpen} className={classes.fab}>
-              <AddIcon />
-            </Fab>
-            <Dialog
-              open={this.state.open}
-              onClose={this.handleClose}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description">
-              <DialogTitle id="alert-dialog-title">{'Add new resturant'}</DialogTitle>
-              <DialogContent>
-                <ResturantFormNew handleClose={this.handleClose} />
-              </DialogContent>
-            </Dialog>
-          </div>
-        );
-      }
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <Fab color="primary" aria-label="Add" onClick={this.handleClickOpen} className={classes.fab}>
+          <AddIcon />
+        </Fab>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description">
+          <DialogTitle id="alert-dialog-title">{'Add new resturant'}</DialogTitle>
+          <DialogContent>
+            <ResturantFormNew handleClose={this.handleClose} />
+          </DialogContent>
+        </Dialog>
+      </div>
+    );
+  }
 }
+
 AddNewResturant.propTypes = {
   classes: PropTypes.object,
 };
-export default withStyles(styles, { withTheme: true })(AddNewResturant);
 
+export default withStyles(styles, { withTheme: true })(AddNewResturant);

@@ -14,7 +14,6 @@ import * as Actions from '../actions/resturant.actions';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-
 const drawerWidth = 300;
 const styles = theme => ({
   root: {
@@ -37,10 +36,6 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  // menuButton: {
-  //   marginLeft: -12,
-  //   marginRight: 20,
-  // },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -107,7 +102,6 @@ const styles = theme => ({
   },
 });
 
-
 const NavBar = (props) => {
   const { classes, open, openDrawer } = props;
   return (
@@ -120,8 +114,7 @@ const NavBar = (props) => {
             color="inherit"
             aria-label="Open drawer"
             onClick={openDrawer}
-            className={classNames(classes.menuButton, open && classes.hide)}
-          >
+            className={classNames(classes.menuButton, open && classes.hide)}>
             <FaFilter />
           </IconButton>
           <Typography variant="title" color="inherit">

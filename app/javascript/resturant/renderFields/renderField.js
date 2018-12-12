@@ -5,7 +5,6 @@ const renderField = ({ input, label, type, ...rest }) => {
   return (<Form.Group
     controlId="formBasicText">
     <Form.Label>{label}</Form.Label>
-
     <Form.Control
       {...input}
       {...rest}
@@ -14,6 +13,5 @@ const renderField = ({ input, label, type, ...rest }) => {
     />
   </Form.Group>);
 };
-
 
 export default renderField;

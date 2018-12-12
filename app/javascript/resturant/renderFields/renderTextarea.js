@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/lib/Form';
 
-
 const renderTextarea = ({ input, label, rows, ...rest }) => {
   return (<Form.Group
     controlId="formBasicText">
@@ -15,6 +14,4 @@ const renderTextarea = ({ input, label, rows, ...rest }) => {
   </Form.Group>);
 };
 
-
-export default renderTextarea
-;
+export default renderTextarea;

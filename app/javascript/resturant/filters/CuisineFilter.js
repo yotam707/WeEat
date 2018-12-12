@@ -9,11 +9,12 @@ import FastFoodIcon from '@material-ui/icons/Fastfood';
 import PropTypes from 'prop-types';
 
 const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
+  const Cuisine = 'Cuisine';
   return (<ListItem button>
     <ListItemIcon>
       <FastFoodIcon className={iconClass} />
     </ListItemIcon>
-    <ListItemText primary="Cuisine" />
+    <ListItemText primary={Cuisine} />
     <ListItemSecondaryAction>
       <Select
         value={cuisine}

@@ -102,8 +102,7 @@ const DrawerFilter = (props) => {
       open={open}
       classes={{
         paper: classes.drawerPaper,
-      }}
-    >
+      }}>
       <div className={classes.drawerHeader}>
         <IconButton onClick={closeDrawer}>
           {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}

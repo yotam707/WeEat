@@ -11,7 +11,6 @@ import TenbisIcon from './TenbisIcon';
 import { CardHeader } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-
 const styles = () => ({
   card: {
     maxWidth: 350,
@@ -20,7 +19,6 @@ const styles = () => ({
     display: 'flex',
   },
 });
-
 
 const Resturant = (props) => {
   const { resturant, classes } = props;
@@ -36,8 +34,7 @@ const Resturant = (props) => {
           }
           subheader={
             resturant.cuisine
-          }
-          />
+          }/>
           <CardContent>
             <Typography component="div" variant="body2" gutterBottom align="left">
               <StarRating rating={resturant.rating_avg} editing={false} />
@@ -50,8 +47,7 @@ const Resturant = (props) => {
             }
             <AddNewReview resturantId={resturant.id} />
           </CardActions>
-        </Card>
-      )
+        </Card>)
       }
     </React.Fragment>
   );
@@ -61,4 +57,5 @@ Resturant.propTypes = {
   classes: PropTypes.object,
   resturant: PropTypes.object,
 };
+
 export default withStyles(styles)(Resturant);

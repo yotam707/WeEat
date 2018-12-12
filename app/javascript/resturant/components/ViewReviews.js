@@ -15,11 +15,8 @@ const styles = theme => ({
 });
 
 class ViewReviews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-    };
+  state = {
+    open: false,
   }
 
   handleClickOpen = () => {
@@ -34,7 +31,7 @@ class ViewReviews extends React.Component {
     const { classes, reviews } = this.props;
     const dialotTitle = 'View Reviews';
     return (
-      <div>
+      <React.Fragment>
         <Button variant="contained" onClick={this.handleClickOpen} color="primary" className={classes.button}>
                 Reviews
           <MessageIcon/>
@@ -49,12 +46,14 @@ class ViewReviews extends React.Component {
             <ResturantReview reviews={reviews} handleClose={this.handleClose} />
           </DialogContent>
         </Dialog>
-      </div>
+      </React.Fragment>
     );
   }
 }
+
 ViewReviews.propTypes = {
   classes: PropTypes.object,
   reviews: PropTypes.array,
 };
+
 export default withStyles(styles, { withTheme: true })(ViewReviews);

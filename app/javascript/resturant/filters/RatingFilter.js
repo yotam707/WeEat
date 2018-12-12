@@ -9,12 +9,13 @@ import PropTypes from 'prop-types';
 import StarRating from '../components/StarRating';
 
 const RatingFilter = ({ filterRating, minStarRating, iconClass }) => {
+  const Rating = 'Rating';
   return (<ListItem button>
     <ListItemIcon>
       <StarIcon className={iconClass} />
     </ListItemIcon>
     <Tooltip title="Clear" placement="left">
-      <ListItemText onClick={() => filterRating(0)} primary="Rating" />
+      <ListItemText onClick={() => filterRating(0)} primary={Rating} />
     </Tooltip>
     <ListItemSecondaryAction>
       <StarRating rating={minStarRating} onStarClick={(starRating) => filterRating(starRating)} />

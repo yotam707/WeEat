@@ -46,6 +46,7 @@ class ResturantReviewForm extends React.Component {
       );
     }
 }
+
 ResturantReviewForm.propTypes = {
   handleSubmit: PropTypes.func,
   handleClose: PropTypes.func,
@@ -56,4 +57,3 @@ ResturantReviewForm.propTypes = {
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
 export default connect(null, mapDispatchToProps)(reduxForm({ form: 'addReview',
   enableReinitialize: true })(ResturantReviewForm));
-

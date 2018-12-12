@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/lib/Form';
 
-
 const renderSelect = ({ input, label, children, ...rest }) => {
   return (<Form.Group
     controlId="formBasicText">
@@ -14,6 +13,5 @@ const renderSelect = ({ input, label, children, ...rest }) => {
     />
   </Form.Group>);
 };
-
 
 export default renderSelect;
