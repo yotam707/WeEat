@@ -61,6 +61,6 @@ SearchInput.propTypes = {
   classes: PropTypes.object,
   value: PropTypes.object,
   onChange: PropTypes.func,
-  debounceTimeout: PropTypes.func,
+  debounceTimeout: PropTypes.number,
 };
 export default withStyles(styles)(SearchInput);

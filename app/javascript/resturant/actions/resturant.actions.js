@@ -18,37 +18,33 @@ export const openDrawer = () => ({ type: OPEN_DRAWER });
 export const closeDrawer = () => ({ type: CLOSE_DRAWER });
 
 
-export const fetchResturants = () => {
-  return (dispatch, getState) => {
-    const { form, resturants } = getState();
-    const { search } = form;
-    const { tenbis, cuisine, maxDeliveryInHours, minStarRating } = resturants;
-    let searchQuery;
+export const fetchResturants = () => (dispatch, getState) => {
+  const { form, resturants } = getState();
+  const { search } = form;
+  const { tenbis, cuisine, maxDeliveryInHours, minStarRating } = resturants;
+  let searchQuery;
 
-    if (search) {
-      if (search.values) {
-        searchQuery = search.values.searchQuery;
-      }
-    }
+  if (search && search.values) {
+    searchQuery = search.values.searchQuery;
+  }
 
-    const urlFilters = {
-      search: searchQuery || '',
-      // eslint-disable-next-line no-undefined
-      tenbis: tenbis ? true : undefined,
-      cuisine: cuisine,
-      max_delivery_time: maxDeliveryInHours,
-      rating_avg: minStarRating,
+  const urlFilters = {
+    search: searchQuery || '',
+    // eslint-disable-next-line no-undefined
+    tenbis: tenbis ? true : undefined,
+    cuisine: cuisine,
+    max_delivery_time: maxDeliveryInHours,
+    rating_avg: minStarRating,
 
-    };
-    const queryParams = queryString.stringify(urlFilters);
-
-
-    axios.get(`${RESTURANT_URL}/?${queryParams}`)
-      .then(response => {
-        return response.data;
-      })
-      .then(resturantsResponse => dispatch(updateResturants(resturantsResponse)));
   };
+  const queryParams = queryString.stringify(urlFilters);
+
+
+  axios.get(`${RESTURANT_URL}/?${queryParams}`)
+    .then(response => {
+      return response.data;
+    })
+    .then(resturantsResponse => dispatch(updateResturants(resturantsResponse)));
 };
 
 export const filterTenBis = () => (dispatch) => {

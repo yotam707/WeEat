@@ -15,6 +15,7 @@ import CuisineFilter from '../filters/CuisineFilter';
 import DeliveryFilter from '../filters/DeliveryFilter';
 import ClearAllFilter from '../filters/ClearAllFilter';
 import { bindActionCreators } from 'redux';
+import { getResturants } from '../selectors/selectors';
 import PropTypes from 'prop-types';
 
 const drawerWidth = 300;
@@ -80,7 +81,6 @@ const styles = theme => ({
   },
 });
 
-
 const DrawerFilter = (props) => {
   const {
     classes,
@@ -93,7 +93,7 @@ const DrawerFilter = (props) => {
     filterMaxDeliveryTime,
     clearAll,
   } = props;
-  const { minStarRating, cuisine, maxDeliveryInHours, tenbis } = props.store.resturants;
+  const { minStarRating, cuisine, maxDeliveryInHours, tenbis } = props.resturants;
   return (
     <Drawer
       className={classes.drawer}
@@ -126,22 +126,20 @@ const DrawerFilter = (props) => {
   );
 };
 const mapStateToProps = (store) => ({
-  store: store,
+  resturants: getResturants(store),
 });
 
 DrawerFilter.propTypes = {
   classes: PropTypes.object,
   open: PropTypes.bool,
-  closeDrawer: PropTypes.bool,
+  closeDrawer: PropTypes.func,
   theme: PropTypes.object,
   filterTenBis: PropTypes.func,
   filterRating: PropTypes.func,
   filterCuisine: PropTypes.func,
   filterMaxDeliveryTime: PropTypes.func,
   clearAll: PropTypes.func,
-  store: PropTypes.shape({
-    resturants: PropTypes.object,
-  }),
+  resturants: PropTypes.object,
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);

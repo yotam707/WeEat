@@ -24,6 +24,6 @@ const RatingFilter = ({ filterRating, minStarRating, iconClass }) => {
 RatingFilter.propTypes = {
   filterRating: PropTypes.func,
   minStarRating: PropTypes.number,
-  iconClass: PropTypes.object,
+  iconClass: PropTypes.string,
 };
 export default RatingFilter;

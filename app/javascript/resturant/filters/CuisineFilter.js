@@ -21,16 +21,13 @@ const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
         inputProps={{
           name: 'cuisine',
           id: 'cuisine-type',
-        }}
-      >
+        }}>
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={'Japanease'}>Japanease</MenuItem>
-        <MenuItem value={'Indian'}>Indian</MenuItem>
-        <MenuItem value={'Thai'}>Thai</MenuItem>
-        <MenuItem value={'Burgers'}>Burgers</MenuItem>
-        <MenuItem value={'Israeli'}>Israeli</MenuItem>
+        {['Japanease', 'Indian', 'Thai', 'Burgers', 'Israeli'].map((text) => (
+          <MenuItem button key={text} value={text}>{text}</MenuItem>
+        ))}
       </Select>
     </ListItemSecondaryAction>
   </ListItem>);
@@ -38,7 +35,7 @@ const CuisineFilter = ({ filterCuisine, cuisine, iconClass }) => {
 
 CuisineFilter.propTypes = {
   filterCuisine: PropTypes.func,
-  cuisine: PropTypes.object,
-  iconClass: PropTypes.object,
+  cuisine: PropTypes.string,
+  iconClass: PropTypes.string,
 };
 export default CuisineFilter;

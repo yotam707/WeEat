@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 
 const ResturantDisplay = ({ resturants }) => {
   return (
-    <div>
-      <div>
+    <React.Fragment>
+      <React.Fragment>
         {resturants.length > 0 ? (
           <ResturantList resturants={resturants}/>)
           : (<h2>No Resturants</h2>)
         }
-      </div>
+      </React.Fragment>
       <AddNewResturant />
-    </div>
+    </React.Fragment>
   );
 };
 
 ResturantDisplay.propTypes = {
-  resturants: PropTypes.object,
+  resturants: PropTypes.array,
 };
 
 export default ResturantDisplay;

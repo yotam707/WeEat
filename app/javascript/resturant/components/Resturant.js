@@ -25,8 +25,8 @@ const styles = () => ({
 const Resturant = (props) => {
   const { resturant, classes } = props;
   return (
-    <div>
-      { resturant ? (
+    <React.Fragment>
+      { resturant && (
         <Card className={classes.card}>
           <CardHeader action={
             resturant.tenbis && <TenbisIcon />
@@ -51,8 +51,9 @@ const Resturant = (props) => {
             <AddNewReview resturantId={resturant.id} />
           </CardActions>
         </Card>
-      ) : null}
-    </div>
+      )
+      }
+    </React.Fragment>
   );
 };
 

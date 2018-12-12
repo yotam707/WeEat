@@ -26,11 +26,11 @@ const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={1}>1 Hour</MenuItem>
-        <MenuItem value={2}>2 Hours</MenuItem>
-        <MenuItem value={3}>3 Hours</MenuItem>
-        <MenuItem value={4}>4 Hours</MenuItem>
-        <MenuItem value={5}>5 Hours</MenuItem>
+        {[1, 2, 3, 4, 5].map((val) => {
+          let text = val % 10 === 1 ? val + ' Hour' : val + ' Hours';
+          return <MenuItem button key={val} value={val}>{text}</MenuItem>;
+        }
+        )}
       </Select>
     </ListItemSecondaryAction>
   </ListItem>);
@@ -38,6 +38,6 @@ const DeliveryFilter = ({ filterMaxDeliveryTime, maxDeliveryInHours, iconClass }
 DeliveryFilter.propTypes = {
   filterMaxDeliveryTime: PropTypes.func,
   maxDeliveryInHours: PropTypes.number,
-  iconClass: PropTypes.object,
+  iconClass: PropTypes.string,
 };
 export default DeliveryFilter;
