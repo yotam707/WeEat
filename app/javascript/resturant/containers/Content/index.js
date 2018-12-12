@@ -5,6 +5,7 @@ import * as Actions from '../../actions/resturant.actions';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import { getResturants } from '../../selectors/selectors';
 import PropTypes from 'prop-types';
 
 const drawerWidth = 300;
@@ -37,14 +38,14 @@ class Content extends Component {
   }
 
   render() {
-    const { open } = this.props.resturants.resturants;
+    const { open } = this.props.resturants;
     const { classes } = this.props;
     return (
       <main
         className={classNames(classes.content, {
           [classes.contentShift]: open,
         })}>
-        <ResturantDisplay resturants={this.props.resturants.resturants.resturants} />
+        <ResturantDisplay resturants={this.props.resturants.resturants} />
       </main>
     );
   }
@@ -52,14 +53,14 @@ class Content extends Component {
 Content.propTypes = {
   classes: PropTypes.object,
   resturants: PropTypes.shape({
-    resturants: PropTypes.object,
+    resturants: PropTypes.array,
+    open: PropTypes.bool,
   }),
   fetchResturants: PropTypes.func,
 };
 
-const mapStateToProps = (resturants, open) => ({
-  resturants: resturants,
-  open: open,
+const mapStateToProps = (store) => ({
+  resturants: getResturants(store),
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
