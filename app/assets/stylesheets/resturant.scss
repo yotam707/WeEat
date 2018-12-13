@@ -1,0 +1,110 @@
+body {
+    font-family:  sans-serif;
+  }
+  
+  .resturant-container {
+    display:flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+   }
+  
+  .resturant-text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .resturant {
+    width: 400px;
+    min-width: 200px;
+    padding: 10px;
+  }
+  
+  .resturant-text {
+    font-size: 1.3em;
+  }
+  
+  .resturant-author {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .resturant-open, .resturant-close {
+    opacity: 0.8;
+    font-family: serif;
+  }
+  
+  .resturant-open {
+    float: left;
+    margin-right: 10px;
+    font-size: 4em;
+    font-weight: bold;
+  }
+  
+  .resturant-close {
+    float: right;
+    margin-left: 10px;
+    font-size: 4em;
+    font-weight: bold;
+  }
+  
+  .link-next, .link-previous {
+    transition: all .2s ease-in-out;
+    color: black;
+    font-size: 4em;
+    margin: 20px;
+    opacity: 0.3;
+    padding-bottom: 25px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .stars-rating {
+    display: flex !important;
+    margin-top: 15px;
+
+  }
+
+  .stars-rating :nth-child(2) {
+    order: 3
+  }
+  .stars-rating :nth-child(4) {
+    order: 2
+  }
+  .stars-rating :nth-child(6) {
+    order: 1
+  }
+
+  .ten-bis-icon {
+    margin: 4px;
+    float:right;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+    background-image: url('./images/ten_bis.jpg');
+    border-radius: 50%;
+  }
+  
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 10px;
+    opacity: 0.5;
+    a {
+      color: black;
+      &:link {
+        text-decoration: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
